@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fontes Externas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Estilo -->
+    <link rel="stylesheet" href="./css/estilo.css">
+
+    <!-- Script -->
+    <script src="./js/script.js" defer></script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/img/favicon-32x32.png" type="image/x-icon">
+    
+    <title>#Frontend Mentor - Página de Notícias</title>
+</head>
+<body>
+    <main class="main">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <div class="wrapper-img">
+                <img src="./assets/img/logo.svg" alt="[logo]">
+            </div>
+            <ul class="menu">
+                <li><a href="#" class="link-menu">Home</a></li>
+                <li><a href="#" class="link-menu">New</a></li>
+                <li><a href="#" class="link-menu">Popular</a></li>
+                <li><a href="#" class="link-menu">Treading</a></li>
+                <li><a href="#" class="link-menu">Categories</a></li>
+            </ul>
+            </div>
+        </header>
+
+        <div class="destaque-news">
+            <!-- Noticia em destaque -->
+            <section class="section-capa">
+                <img class="img-capa" src="./assets/img/image-web-3-desktop.jpg" alt="[imagem-capa]">
+                <div class="colunas-texto">
+                    <h1 class="titulo-capa">The Bright Future of Web 3.0?</h1>
+                    <div>
+                        <p class="texto-capa">We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?</p>
+                        <button class="btn-capa">Read More</button>
+                    </div>
+                    
+                </div>
+            </section>
+            
+            <!-- Lateral de notícias -->
+            <aside class="aside-news">
+                <h1 class="aside-titulo">New</h1>
+    
+                <label class="box-aside-news">
+                    <a class="titulo-news-aside" href="#">Hydrogen VS Electric Cars</a>
+                    <p class="texto-news-aside">Will hudrogen-fuled cars ever catch up tp EVs?</p>
+                </label>
+    
+                <label class="box-aside-news">
+                    <a class="titulo-news-aside" href="#">The Downsides of AI Artistry</a>
+                    <p class="texto-news-aside">What are the possible adverse effects of on-demand AI image generation?</p>
+                </label>
+    
+                <label class="box-aside-news">
+                    <a class="titulo-news-aside" href="#">Is VC Funding Drying Up?</a>
+                    <p class="texto-news-aside">Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+                </label>
+            </aside>
+        </div>
+        
+        <!-- Sessão de notícias -->
+        <section class="section-news"></section>
+    </main>
+</body>
+</html>

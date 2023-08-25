@@ -1,0 +1,101 @@
+@import 'padrao';
+@import 'screen';
+
+.main {
+    width: 100%;
+    padding: 40px 60px;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            
+            .link-menu {
+                color: $dark-grayish-blue;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: .3s;
+
+                &:hover {
+                    color: $soft-orange;
+                }
+            }
+        }
+    }
+
+    .destaque-news {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+
+        .section-capa {
+            
+            .img-capa {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .colunas-texto {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .titulo-capa {
+                font-size: 2.5rem;
+            }
+
+            .texto-capa {
+                font-size: 11px;
+                line-height: 20px;
+            }
+
+            .btn-capa {
+                border: none;
+                background-color: $soft-red;
+                color: $off-white;
+                padding: 10px 25px;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-top: 25px;
+                transition: .3s;
+
+                &:hover {
+                    background-color: $very-dark-blue;
+                }
+            }
+        }
+
+        .aside-news {
+            padding: 20px;
+            background-color: $very-dark-blue;
+
+            .aside-titulo {
+                color: $soft-orange;
+                font-size: 1.8rem;
+                font-weight: 500;
+
+                
+            }
+
+            .box-aside-news {
+                
+            }
+
+            .titulo-news-aside {
+                color: $off-white;
+                cursor: pointer;
+
+                &:hover {
+                    color: $soft-orange;
+                }
+            }
+        }
+    }
+}
