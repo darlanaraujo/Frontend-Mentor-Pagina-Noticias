@@ -1,9 +1,21 @@
 @import 'padrao';
 @import 'screen';
+@import 'animacoes';
 
 .main {
-    width: 100%;
-    padding: 40px 60px;
+    display: flex;
+    justify-content: center;
+    
+    .corpo {
+        max-width: 80%;
+        padding: 40px 0px;
+        position: relative;
+        transition: all .4s;
+
+        @include tablet {
+            max-width: 94%;
+        }
+    }
 
     .header {
         display: flex;
@@ -11,28 +23,133 @@
         align-items: center;
         margin-bottom: 50px;
 
-        .menu {
+        .nav-menu {
+            width: 100%;
+            height: 50px;
             display: flex;
-            gap: 20px;
-            
-            .link-menu {
-                color: $dark-grayish-blue;
-                padding: 10px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: .3s;
+            justify-content: right;
+            align-items: center;
 
-                &:hover {
-                    color: $soft-orange;
+            .checkbox {
+                display: none;
+                position: absolute;
+                z-index: 1;
+
+                &:checked ~ .label-menu-bar {
+                    position: fixed;
+                }
+    
+                &:checked ~ .label-menu-bar .menu-bar:nth-child(1) {
+                    transform: rotate(-45deg);
+                    top: 8px;
+                }
+                &:checked ~ .label-menu-bar .menu-bar:nth-child(2) {
+                    display: none;
+                }
+                &:checked ~ .label-menu-bar .menu-bar:nth-child(3) {
+                    transform: rotate(45deg);
+                    top: 8px;
+                }
+
+                &:checked + .background {
+                    width: 100%;
+                    height: 100vmax;
+                    background-color: $very-dark-blue;
+                    opacity: .8;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                }
+    
+                &:checked ~ .menu {
+                    display: block;
+                    position: fixed;
+                    z-index: 3;
+                    top: 0;
+                    right: -15px;
+                    width: 70%;
+                    height: 100%;
+                    background-color: $off-white;
+                    padding: 200px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 20px;
+                    animation: slide .5s ease-in-out;
+                }
+            }
+    
+            .label-menu-bar {
+                display: none;
+    
+                @include mobile {
+                    width: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    cursor: pointer;
+                    z-index: 99;
+                    
+                    .menu-bar {
+                        position: absolute;
+                        display: block;
+                        width: 40px;
+                        height: 5px;
+                        border-radius: 30px;
+                        background-color: $very-dark-blue;
+                        transition: all .2s ease-in-out;
+                        
+                        &:nth-child(1) {
+                            top: 0;
+                        }
+        
+                        &:nth-child(2) {
+                            top: 8px;
+                        }
+                        
+                        &:nth-child(3) {
+                            top: 16px;
+                        }
+                    }
+                }
+
+            }
+    
+            .menu {
+                display: flex;
+                gap: 20px;
+                
+    
+                @include mobile {
+                    display: none;
+                }
+                
+                .link-menu {
+                    color: $dark-grayish-blue;
+                    padding: 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: .3s;
+    
+                    &:hover {
+                        color: $soft-orange;
+                    }
                 }
             }
         }
+
     }
 
     .destaque-news {
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 3fr 1fr;
         gap: 20px;
+        margin-bottom: 70px;
+
+        @include mobile {
+            display: block;
+        }
 
         .section-capa {
             
@@ -44,18 +161,50 @@
             .colunas-texto {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
+                gap: 100px;
+
+                @include mobile {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                }
+
+                @include tablet {
+                    gap: 50px;
+                }
             }
 
             .titulo-capa {
-                font-size: 2.5rem;
+                font-size: 4.5rem;
+                line-height: 5rem;
+
+                @include mobile {
+                    font-size: 3.5rem;
+                    line-height: 4rem;
+                }
+
+                @include tablet {
+                    font-size: 3rem;
+                    line-height: 3.7rem;
+                }
+            }
+
+            .caixa-texto {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 20px;
             }
 
             .texto-capa {
-                font-size: 11px;
-                line-height: 20px;
+                font-size: 18px;
+                line-height: 32px;
+                margin-right: 10px;
             }
 
             .btn-capa {
+                width: 200px;
+                height: 50px;
                 border: none;
                 background-color: $soft-red;
                 color: $off-white;
@@ -63,8 +212,11 @@
                 cursor: pointer;
                 text-transform: uppercase;
                 letter-spacing: 1px;
-                margin-top: 25px;
                 transition: .3s;
+
+                @include mobile {
+                    margin-bottom: 60px;
+                }
 
                 &:hover {
                     background-color: $very-dark-blue;
@@ -75,26 +227,95 @@
         .aside-news {
             padding: 20px;
             background-color: $very-dark-blue;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
 
             .aside-titulo {
                 color: $soft-orange;
-                font-size: 1.8rem;
+                font-size: 2.4rem;
                 font-weight: 500;
-
+                // margin-bottom: 40px;
                 
             }
 
             .box-aside-news {
+                display: block;
+                padding-bottom: 40px;
+                // height: 300px;
                 
+                &:not(:nth-last-child(1)) 
+                {
+                    border-bottom: solid 1px $grayish-blue;
+
+                }
+                
+                @include mobile {
+                    margin: 30px 0px;
+
+                }
             }
 
             .titulo-news-aside {
                 color: $off-white;
                 cursor: pointer;
+                font-size: 20px;
+                // margin-bottom: 15px;
 
                 &:hover {
                     color: $soft-orange;
                 }
+            }
+
+            .texto-news-aside {
+                margin-top: 15px;
+                // margin-bottom: 60px;
+            }
+        }
+
+    }
+
+    .section-news {
+        display: flex;
+        gap: 20px;
+
+        @include mobile {
+            flex-direction: column;
+        }
+
+        .box-mini-destaque {
+            display: flex;
+            gap: 20px;
+
+            .img-mini-noticia {
+                width: 120px;
+            }
+
+            .caixa-texto {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            .numero-noticia {
+                font-size: 30px;
+                color: $grayish-blue;
+            }
+
+            .titulo-mini-noticia {
+                font-size: 20px;
+                font-weight: bold;
+                color: $very-dark-blue;
+                cursor: pointer;
+
+                &:hover {
+                    color: $soft-red;
+                }
+            }
+
+            .texto-mini-noticia {
+                color: $grayish-blue;
+                line-height: 30px;
             }
         }
     }
